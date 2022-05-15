@@ -1,0 +1,38 @@
+<nav
+  class="navbar-container"
+  [style.height]="isOpenHamburgerMenu ? 'auto' : '5rem'"
+>
+  <a *ngIf="!isOpenHamburgerMenu" class="brand" href="">conduit</a>
+  <ul *ngIf="isOpenHamburgerMenu" class="items-wrapper">
+    <li>
+      <a class="item" routerLink="/" routerLinkActive="active">
+        <svg-icon
+          src="../../../assets/home-icon.svg"
+          [svgStyle]="{
+            'width.rem': 2,
+            'height.rem': 2,
+            'margin-right.rem': 1,
+            fill: 'var(--blue-2)'
+          }"
+        ></svg-icon>
+        Home
+      </a>
+    </li>
+    <li>
+      <a class="item" href="">Log in</a>
+    </li>
+    <li>
+      <a class="item" href="">Sign up</a>
+    </li>
+  </ul>
+  <button
+    class="hamburger"
+    [class.hamburger--elastic]="isOpenHamburgerMenu"
+    [class.is-active]="isOpenHamburgerMenu"
+    (click)="onToggleHamburgerMenu()"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+</nav>
