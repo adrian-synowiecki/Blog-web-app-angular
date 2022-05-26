@@ -1,7 +1,15 @@
 <div class="home">
   <app-header></app-header>
   <main class="wrapper">
-    <a class="nav-link-item" routerLink="/" routerLinkActive="active-global-feed">Global Feed</a>
-
+    <a
+      class="nav-link-item"
+      routerLink="/"
+      routerLinkActive="active-global-feed"
+      >Global Feed</a
+    >
+    <mat-spinner [diameter]="diameter" class="test" *ngIf="isFetching"></mat-spinner>
+    <ng-container *ngIf="articleList.length > 0">
+      <app-article-list [articleList]="articleList"></app-article-list>
+    </ng-container>
   </main>
 </div>

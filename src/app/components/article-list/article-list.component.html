@@ -1,0 +1,36 @@
+<ul>
+  <li class="article-preview" *ngFor="let article of articleList">
+    <div class="article-meta">
+      <a href="">
+        <img class="image-profile" [src]="article.author.image" />
+      </a>
+      <section class="article-meta-wrapper">
+        <a href="" class="author-name">{{ article.author.username }}</a>
+        <p class="date-created">{{ article.createdAt | date: "mediumDate" }}</p>
+      </section>
+    </div>
+    <section class="article-preview-wrapper">
+      <a href="" class="title">{{ article.title }}</a>
+      <a href="" class="text">{{ article.description }}</a>
+      <a href="" class="read-more">Read more...</a>
+    </section>
+    <ul class="tag-list">
+      <li style="display: inline-block" *ngFor="let tag of article.tagList">
+        <a href="" class="tag">{{ tag }}</a>
+      </li>
+    </ul>
+    <button class="update-favorite-articles">
+      <svg-icon
+        src="../../../assets/heart-icon.svg"
+        class="heart-icon"
+        [svgStyle]="{
+          'width.rem': 1.3,
+          'marginTop.rem': 0.2,
+          'height.rem': 1.3,
+          'margin-right.rem': 0.3
+        }"
+      ></svg-icon>
+      <span class="favorite-added-count">{{ article.favoritesCount }}</span>
+    </button>
+  </li>
+</ul>
